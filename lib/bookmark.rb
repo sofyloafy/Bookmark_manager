@@ -1,10 +1,9 @@
+require 'pg'
 
 class Bookmark
-
   def self.all
-
-bookmark = ['https://github.com/makersacademy/course/blob/master/bookmark_manager/03_viewing_bookmarks',
-            'https://www.bbc.co.uk/']
-
-          end
+    connection = PG.connect(dbname: 'bookmark_manager')
+    result = connection.exec('SELECT * FROM bookmarks')
+    result.map { |bookmark| bookmark['url'] }
+  end
 end
