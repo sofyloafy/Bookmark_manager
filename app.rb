@@ -6,10 +6,14 @@ class BookmarkManager < Sinatra::Base
     "Welcome!"
   end
 
+  # get '/bookmarks' do
+  #   @bookmarks = ['https://github.com/makersacademy/course/blob/master/bookmark_manager/03_viewing_bookmarks',
+  #                 'https://www.bbc.co.uk/'
+  #               ]
+  #   erb :bookmarks
+  # end
   get '/bookmarks' do
-    @bookmarks = ['https://github.com/makersacademy/course/blob/master/bookmark_manager/03_viewing_bookmarks',
-                  'https://www.bbc.co.uk/'
-                ]
+    @bookmarks = Bookmark.all
     erb :bookmarks
   end
 
