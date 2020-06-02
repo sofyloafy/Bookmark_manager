@@ -1,17 +1,12 @@
 require 'sinatra/base'
+require_relative './lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
 
   get '/' do
-    "Welcome!"
+    redirect '/bookmarks'
   end
 
-  # get '/bookmarks' do
-  #   @bookmarks = ['https://github.com/makersacademy/course/blob/master/bookmark_manager/03_viewing_bookmarks',
-  #                 'https://www.bbc.co.uk/'
-  #               ]
-  #   erb :bookmarks
-  # end
   get '/bookmarks' do
     @bookmarks = Bookmark.all
     erb :bookmarks
