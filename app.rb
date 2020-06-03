@@ -16,6 +16,12 @@ class BookmarkManager < Sinatra::Base
     erb :bookmarks
   end
 
+  post '/confirm' do
+    Bookmark.create(url: params[:url])
+    @bookmarks = Bookmark.all
+    erb :bookmarks
+  end
+
   run! if app_file == $0
 
 end

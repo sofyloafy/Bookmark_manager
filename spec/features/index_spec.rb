@@ -14,6 +14,13 @@ feature 'Add bookmark' do
     expect(page).to have_content "Add bookmark:"
     expect(page).to have_field "url"
   end
+  
+  scenario 'We should be able to see an added bookmark' do
+    visit '/addbookmark'
+    fill_in 'url', with: 'https://www.bbc.co.uk/'
+    click_button 'Submit'
+    expect(page).to have_content 'https://www.bbc.co.uk'
+  end
 end
 
 feature 'Bookmark Manager' do
@@ -24,7 +31,7 @@ feature 'Bookmark Manager' do
     connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.google.com');")
 
     visit '/bookmarks'
-    
+
     expect(page).to have_content "http://www.makersacademy.com"
     expect(page).to have_content "http://www.destroyallsoftware.com"
     expect(page).to have_content "http://www.google.com"
