@@ -4,7 +4,11 @@ require_relative './lib/bookmark'
 class BookmarkManager < Sinatra::Base
 
   get '/' do
-    redirect '/bookmarks'
+    erb :index
+  end
+
+  get '/addbookmark' do
+    erb :addbookmark
   end
 
   get '/bookmarks' do

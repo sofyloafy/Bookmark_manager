@@ -1,8 +1,22 @@
 require 'sinatra'
 require 'pg'
 
-feature 'Bookmark Manager' do
+feature 'Homepage' do
+  scenario "it should have a button take to form" do
+    visit '/'
+    expect(page).to have_button "Add bookmark"
+  end
+end
 
+feature 'Add bookmark' do
+  scenario 'it should allow user input' do
+    visit '/addbookmark'
+    expect(page).to have_content "Add bookmark:"
+    expect(page).to have_field "url"
+  end
+end
+
+feature 'Bookmark Manager' do
   scenario "it should produce bookmarks" do
     connection = PG.connect(dbname: 'bookmark_manager_test')
     connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")

@@ -8,6 +8,12 @@ As a user
 So that I can view a list of useful websites
 I want to be shown a list of bookmarks
 ```
+
+```
+As a user
+So that I can continue storing links
+I would like to add a bookmark
+```
 <br><br>
 
 Domain model for first user story:
