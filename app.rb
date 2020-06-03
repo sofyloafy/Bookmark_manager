@@ -17,7 +17,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/confirm' do
-    Bookmark.create(url: params[:url])
+    Bookmark.create(params[:url])
     @bookmarks = Bookmark.all
     erb :bookmarks
   end
