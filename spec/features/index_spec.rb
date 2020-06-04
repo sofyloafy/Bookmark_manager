@@ -18,8 +18,9 @@ feature 'Add bookmark' do
   scenario 'We should be able to see an added bookmark' do
     visit '/addbookmark'
     fill_in 'url', with: 'https://www.bbc.co.uk/'
+    fill_in 'title', with: 'BBC'
     click_button 'Submit'
-    expect(page).to have_content 'https://www.bbc.co.uk'
+    expect(page).to have_link('BBC', href: 'https://www.bbc.co.uk')
   end
 end
 
