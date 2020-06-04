@@ -1,8 +1,9 @@
-<p>
+<ul>
   <% @bookmarks.each do |bookmark| %>
-  <li><%= bookmark %></li>
-<% end %>
-</p>
-
-
-<!-- <li><a href="www.youtube.com">  -->
+    <li>
+      <a href="<%= bookmark.url %>" target="_blank" >
+        <%= bookmark.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

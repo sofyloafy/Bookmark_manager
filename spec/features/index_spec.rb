@@ -14,7 +14,7 @@ feature 'Add bookmark' do
     expect(page).to have_content "Add bookmark:"
     expect(page).to have_field "url"
   end
-  
+
   scenario 'We should be able to see an added bookmark' do
     visit '/addbookmark'
     fill_in 'url', with: 'https://www.bbc.co.uk/'
@@ -33,8 +33,8 @@ feature 'Bookmark Manager' do
 
     visit '/bookmarks'
 
-    expect(page).to have_content "http://www.makersacademy.com"
-    expect(page).to have_content "http://www.destroyallsoftware.com"
-    expect(page).to have_content "http://www.google.com"
+    expect(page).to have_content "Makers"
+    expect(page).to have_content "Destroy All"
+    expect(page).to have_content "Google"
   end
 end
