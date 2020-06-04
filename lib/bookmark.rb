@@ -21,4 +21,10 @@ class Bookmark
 
     connection.exec("INSERT INTO bookmarks(url, title) VALUES ('#{url}','#{title}');")
   end
+
+   # def select
+   #   connection = PG.connect(dbname: "bookmark_manager")
+   #   select = connection.exec('SELECT url FROM bookmarks WHERE title = #{@selection};')
+   # end
+
 end
