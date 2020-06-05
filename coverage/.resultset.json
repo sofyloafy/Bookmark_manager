@@ -4,6 +4,16 @@
       "/Users/sophiebrown/Projects/Week_4/Bookmark_manager/spec/bookmark_spec.rb": {
         "lines": [
           1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           1,
           1,
@@ -11,16 +21,32 @@
           1,
           1,
           1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
           1,
           null,
           1,
           1,
           1,
           1,
-          1,
-          1,
           null,
           null,
+          null
+        ]
+      },
+      "/Users/sophiebrown/Projects/Week_4/Bookmark_manager/spec/database_helpers.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -75,6 +101,6 @@
         ]
       }
     },
-    "timestamp": 1591365328
+    "timestamp": 1591365544
   }
 }
