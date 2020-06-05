@@ -14,20 +14,12 @@ feature 'Add bookmark' do
     expect(page).to have_content "Add bookmark:"
     expect(page).to have_field "url"
   end
-
-  scenario 'We should be able to see an added bookmark' do
-    visit '/addbookmark'
-    fill_in 'url', with: 'https://www.bbc.co.uk/'
-    fill_in 'title', with: 'BBC'
-    click_button 'Submit'
-    expect(page).to have_link('BBC', href: 'https://www.bbc.co.uk')
-  end
 end
 
 feature 'Bookmark Manager' do
   scenario "it should produce bookmarks" do
     connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.makersacademy.com','Makers');")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.makersacademy.com','Makers Academy');")
     connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.destroyallsoftware.com','Destroy All');")
     connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.google.com','Google');")
 
@@ -36,5 +28,19 @@ feature 'Bookmark Manager' do
     expect(page).to have_content "Makers"
     expect(page).to have_content "Destroy All"
     expect(page).to have_content "Google"
+  end
+end
+
+feature 'Viewing bookmarks' do
+  scenario 'A user can see bookmarks' do
+    Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+    # Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All')
+    # Bookmark.create(url: 'http://www.google.com', title: 'Google')
+
+    visit('/bookmarks')
+
+    expect(page).to have_link("Makers Academy", href: 'http://www.makersacademy.com')
+    # expect(page).to have_link('Destroy All',  href: 'http://www.destroyallsoftware.com')
+    # expect(page).to have_link('Google', href: 'http://www.google.com')
   end
 end
